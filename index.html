@@ -11,47 +11,37 @@
 </head>
 
 <body>
-    <h1 class="text-center">
-        Jeffrey
-    </h1>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <p id="well">Well</p>
+      <!-- Navigation bar starts -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Pure Booking System</a>
+                <!-- Hamburger menu icon for mobile device -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
             </div>
-            <div class="col-md-3">
-                <p id="well1">Well1</p>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                <li><a href="https://anglyeds.github.io/check_in.html" target="_blank">Check In Page</a></li></ul>
             </div>
-            <div class="col-md-3">
-                <p id="well2">Well2</p>
-            </div>
-            <div class="col-md-3">
-                <p id="well3">Well3</p>
+            <div class="row">
+                <ul>
+                    <li><a href="https://anglyeds.github.io/check_in.html" target="_blank">Check In Page</a></li></ul>
+                </ul>
             </div>
         </div>
-    </div>
+    </nav>
+    <!-- Navigation bar ends -->
 </body>
 
 </html>
 
 <script>
-$(function(){
-$( "#well1" ).click(function() {
-  $( "#well2" ).animate({
-    width: "toggle",
-    height: "toggle"
-  }, {
-    duration: 5000,
-    specialEasing: {
-      width: "linear",
-      height: "easeOutBounce"
-    },
-    complete: function() {
-      $( this ).after( "<div>Animation complete.</div>" );
-    }
-  });
-});
-})
+
 
 </script>
