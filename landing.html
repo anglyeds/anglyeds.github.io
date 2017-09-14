@@ -1,0 +1,107 @@
+<html>
+        
+        <head>
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+        
+        <!-- JavaScript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        
+        </head>
+        <style>
+                body{
+                        position: relative;  
+                        background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%), url(bg.png) no-repeat center center fixed, url(https://clients.mindbodyonline.com/studios/PureYogaHK/logo.gif?imageversion=110280) no-repeat center center fixed;
+
+                        background: -moz-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.8) 100%), url(https://clients.mindbodyonline.com/studios/PureYogaHK/logo.gif?imageversion=110280) no-repeat center center fixed;
+
+                        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.8)), color-stop(100%,rgba(255,255,255,0.8))), url(https://clients.mindbodyonline.com/studios/PureYogaHK/logo.gif?imageversion=110280) no-repeat center center fixed;
+
+                        background: -webkit-linear-gradient(top, rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.8) 100%), url(https://clients.mindbodyonline.com/studios/PureYogaHK/logo.gif?imageversion=110280) no-repeat center center fixed;
+
+                        background: -o-linear-gradient(top, rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.8) 100%), url(https://clients.mindbodyonline.com/studios/PureYogaHK/logo.gif?imageversion=110280) no-repeat center center fixed;
+
+                        background: -ms-linear-gradient(top, rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.8) 100%), url(https://clients.mindbodyonline.com/studios/PureYogaHK/logo.gif?imageversion=110280) no-repeat center center fixed;
+
+                        background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.8) 100%), url(https://clients.mindbodyonline.com/studios/PureYogaHK/logo.gif?imageversion=110280) no-repeat center center fixed;  
+
+                        background-size: 300px 200px;       
+                }
+
+                
+        </style>
+        <body>
+                <div class="container">
+                        <div class="row">
+                                <div class="col-md-8 col-md-offset-2" style="padding-top:20px;padding-bottom:20px">
+                                <span style="padding-right:20px">Location: AST</span>
+                                Time : <span id = "datetime"></span>
+                                </div>
+                        </div>
+
+                        <div class="row">   
+                                <div class="col-md-8 col-md-offset-2">
+                                        <form action="check_in.html">
+                                        <div class="input-group">
+                                                <div class="input-group-btn search-panel">
+                                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                                                <span id="search_concept">Filter by</span> <span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu" role="menu">             
+                                                                <li><a href="#all">All Fields</a></li>
+                                                                <li class="divider"></li>
+                                                                <li><a href="#barcode">Barcode No.</a></li>
+                                                                <li><a href="#contact_no">Contact No.</a></li>                                                              
+                                                        </ul>
+                                                </div>
+                                                <input type="hidden" name="search_param" value="all" id="search_param">         
+                                                <input type="text" class="form-control" name="x" placeholder="Search term...">
+                                                <span class="input-group-btn">
+                                                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" style="padding:3px;"></span></button>
+                                                </span>
+                                        </div>
+                                        </form>
+                                </div>
+                        </div>
+                        <div class="blank" style="height:350px;">
+
+                        </div>
+                        <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                        <div class="panel panel-default">
+                                                <div class="panel-heading">Upcoming Class</div>
+                                                <div class="panel-body">
+                                                        <h5 style="border-bottom:1px solid;border-top:1px solid;padding:3px 0 3px 0;">1. Start Time: 8:00am | Class: Hatha Yoga | Teacher: Jeffrey | Total Capacity: 30 | Total Signed In: 15/30</h5>
+                                                        <h5 style="border-bottom:1px solid;border-top:1px solid;padding:3px 0 3px 0;">2. Start Time: 8:00am | Class: Hatha Yoga | Teacher: Jeffrey | Total Capacity: 30 | Total Signed In: 15/30</h5>  
+                                                        <h5 style="border-bottom:1px solid;border-top:1px solid;padding:3px 0 3px 0;">3. Start Time: 8:00am | Class: Hatha Yoga | Teacher: Jeffrey | Total Capacity: 30 | Total Signed In: 15/30</h5>             
+                                                </div>
+                                        </div>
+                                </div>                               
+                        </div>
+                </div>
+        </body>
+
+<script>
+function formatDate(date) {
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0'+minutes : minutes;
+        var strTime = hours + ':' + minutes + ' ' + ampm;
+        return date.getMonth()+1 + "/" + date.getDate() + "/" + date.getFullYear() + "  " + strTime;
+}
+
+var date = new Date();
+var e = formatDate(date);
+$(function(){
+        $("#datetime").text(e);
+});
+
+</script>
+
+
+</html>
